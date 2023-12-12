@@ -29,6 +29,7 @@ def process_file(file_path, lines_map):
 
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
         lines = file.readlines()
+        modified_lines = []
         for i, line in enumerate(lines):
             if is_arabic_or_persian(line):
                 match = re.match(r'^(\s*).*?(\s*)$', line)
@@ -42,7 +43,14 @@ def process_file(file_path, lines_map):
                     else:
                         random_id = existing_ids[line_content]
                     lines_map[random_id] = line_content
-                    lines[i] = f"{leading_space}<<<$$${random_id}$$$>>>{trailing_space}"
+                    modified_lines.append(f"{leading_space}<<<$$${random_id}$$$>>>{trailing_space}\n")
+                else:
+                    modified_lines.append(line)
+            else:
+                modified_lines.append(line)
+
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.writelines(modified_lines)
 
 def process_files():
     global existing_ids
