@@ -2,6 +2,8 @@
 
 A Python script to replace Persian/Arabic text content in multiple files with random IDs, creating an Excel mapping.
 
+![MultiFile Text Converter](https://github.com/BaseMax/MultiFile-Text-Converter/assets/2658040/6fc62662-c85a-4849-b3c7-bece4d208d2f)
+
 ## Features
 
 - **Text Replacement:** Identify and replace Persian/Arabic text with random IDs.
