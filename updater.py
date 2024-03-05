@@ -24,7 +24,7 @@ def update_file(file_path, id_to_text_mapping):
         modified_lines = []
 
         for line in lines:
-            match = re.search(r'<<<\$\$\$(.*?)\$\$\$>>>', line)
+            match = re.search(r'<<<\$\$\$([^\$]{20})\$\$\$>>>', line)
             if match:
                 random_id = match.group(1)
                 if random_id in id_to_text_mapping:
